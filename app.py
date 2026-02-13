@@ -15,26 +15,185 @@ def pagina_principal():
         port = 3306,
         user = "root",
         password = "root",
-        database = "letube"
+        database = "lenamusic"
     )
 
     #CRIANDO CURSOR
     cursor = conexao.cursor(dictionary=True)
 
 
-    #EXECULTANDO A CONSULTA
-    cursor.execute("SELECT codigo, cantor, duracao, nome, url_imagem, nome_genero from music;")
 
     musicas = cursor.fetchall()
 
+    #EXECULTANDO A CONSULTA
+    cursor.execute("SELECT codigo, cantor, duracao, nome, url_imagem, nome_genero from music;")
+
+
+    generos = cursor.fetchall()
+
     conexao.close()
 
-
-    return render_template("principal.html", musicas = musicas)
-
-
-
+    return render_template("principal.html", musicas = musicas , generos = generos )
 
 if __name__ == "__main__":
     app.run(debug=True)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
