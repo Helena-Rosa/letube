@@ -1,6 +1,8 @@
 from flask import Flask, render_template, redirect, request
 import random
 import mysql.connector
+from model.musica import recuperar_musicas
+from model.genero import recuperar_generos
 
 app= Flask(__name__)
     
@@ -9,31 +11,18 @@ app= Flask(__name__)
 @app.route ("/")
 @app.route("/home", methods=["GET"])
 def pagina_principal():
-    
-    conexao = mysql.connector.connect(
-        host = "localhost",
-        port = 3306,
-        user = "root",
-        password = "root",
-        database = "lenamusic"
-    )
-
-    #CRIANDO CURSOR
-    cursor = conexao.cursor(dictionary=True)
-
-
-
-    musicas = cursor.fetchall()
-
-    #EXECULTANDO A CONSULTA
-    cursor.execute("SELECT codigo, cantor, duracao, nome, url_imagem, nome_genero from music;")
-
-
-    generos = cursor.fetchall()
-
-    conexao.close()
-
+    musicas = recuperar_musicas()
+    generos = recuperar_generos()
     return render_template("principal.html", musicas = musicas , generos = generos )
+
+
+
+@app.route ("/admin")
+def pagina_admin():
+    musicas = recuperar_musicas()
+    return render_template("administracao.html", musicas = musicas )
+
+
 
 if __name__ == "__main__":
     app.run(debug=True)

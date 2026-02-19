@@ -1,3 +1,5 @@
+
+
 INSERT INTO `lenamusic`.`genero`
 (`nome`,
 `icone`,
@@ -18,7 +20,7 @@ VALUES
 ("michael jackson" ,
 "03:15" ,
 "Chicago",
-"https://pt.wikipedia.org/wiki/Chicago_%28can%C3%A7%C3%A3o_de_Michael_Jackson%29#/media/Ficheiro:MJ_Chicago.jpg",
+"https://upload.wikimedia.org/wikipedia/pt/f/f0/MJ_Chicago.jpg",
 "Pop")
 ;
 
@@ -32,9 +34,9 @@ VALUES
 ("daniel caesar" ,
 "03:10",
 "Bast Part",
-"https://www.discogs.com/pt_BR/release/11178947-Daniel-Caesar-Freudian/image/SW1hZ2U6NTQwNzE5MjM=?srsltid=AfmBOopVe3GWq7-W6LdINXYt4hYyCv6svqCTOkrF_DGAnU9HVPwC6uhL",
+"https://i.discogs.com/Vq73Q7tAEqTdwTAtzuhFHO2PovxlkQqvmckcbNbNcsc/rs:fit/g:sm/q:90/h:590/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTExMTc4/OTQ3LTE2MTI1NTc5/NjYtODQ4OC5qcGVn.jpeg",
 "Jazz")
 ;
-
+music
 
 
