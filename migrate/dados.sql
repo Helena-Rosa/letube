@@ -21,16 +21,7 @@ VALUES
 "03:15" ,
 "Chicago",
 "https://upload.wikimedia.org/wikipedia/pt/f/f0/MJ_Chicago.jpg",
-"Pop")
-;
-
-INSERT INTO `lenamusic`.`music`
-(`cantor`,
-`duracao`,
-`nome`,
-`url_imagem`,
-`nome_genero`)
-VALUES
+"Pop"),
 ("daniel caesar" ,
 "03:10",
 "Bast Part",
