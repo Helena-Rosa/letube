@@ -15,3 +15,23 @@ def recuperar_musicas():
     conexao.close()
 
     return musicas
+
+
+def salvar_musica(cantor:str, duracao:str, nome_musica:str, nome_genero:str, url_imagem:str) -> bool:
+    """
+    ela confere se o salvamento da musica deu certo ou nao (bool) e vai mandar pro banco de dados.
+    """
+    try:
+        conexao, cursor = conectar()
+        cursor.execute("""INSERT INTO music (cantor, genero, duracao, nome, url_imagem, nome_genero)
+                        VALUES (%s, %s, %s, %s, %s)""",
+                        [cantor, duracao, nome_musica, nome_genero, url_imagem])
+        
+        conexao.commit()
+
+        conexao.close()
+
+        return True
+    except:
+        return False
+

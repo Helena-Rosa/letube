@@ -20,7 +20,8 @@ def pagina_principal():
 @app.route ("/admin")
 def pagina_admin():
     musicas = recuperar_musicas()
-    return render_template("administracao.html", musicas = musicas )
+    generos = recuperar_generos()
+    return render_template("administracao.html", musicas = musicas, generos = generos)
 
 
 
