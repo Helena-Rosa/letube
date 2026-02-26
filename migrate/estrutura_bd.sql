@@ -21,6 +21,7 @@ CREATE TABLE IF NOT EXISTS music (
  nome VARCHAR(50),
  url_imagem VARCHAR(255),
  nome_genero VARCHAR(30),
+    ativo bool default 0 , 
  CONSTRAINT fk_music FOREIGN KEY (nome_genero) REFERENCES genero(nome)
 );
 

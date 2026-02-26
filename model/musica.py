@@ -6,7 +6,7 @@ def recuperar_musicas():
     conexao, cursor = conectar()
 
     #execultando a consulta 
-    cursor.execute ("SELect codigo, cantor, duracao, nome, nome_genero, url_imagem from music")
+    cursor.execute ("SELect codigo, cantor, duracao, nome, nome_genero, url_imagem, ativo from music")
 
     #recuperando os dados
     musicas = cursor.fetchall()
@@ -38,4 +38,20 @@ def salvar_musica(cantor:str, duracao:str, nome_musica:str, nome_genero:str, url
             print (erro)
             return False
   
+
+def deletar(codigo):
+     
+    conexao, cursor = conectar()
+    cursor.execute("DELETE FROM music WHERE codigo = %s",[codigo])
+    conexao.commit()
+    conexao.close()
+
+
+
+def ativar(codigo: int, status:bool):
+     
+    conexao, cursor = conectar()
+    cursor.execute("UPDATE music SET ativo = %s WHERE codigo = %s", [status, codigo])
+    conexao.commit()
+    conexao.close()
 

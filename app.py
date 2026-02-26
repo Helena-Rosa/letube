@@ -1,7 +1,7 @@
 from flask import Flask, render_template, redirect, request
 import random
 import mysql.connector
-from model.musica import recuperar_musicas, salvar_musica
+from model.musica import recuperar_musicas, salvar_musica, deletar, ativar
 from model.genero import recuperar_generos
 
 
@@ -36,7 +36,19 @@ def api_inserir_musica():
         return redirect("/admin")
     else: 
         return "ERRO AO ADICIONAR MUSICA"
-    
+
+
+@app.route("/musica/delete/<codigo>")
+def excluir_musica(codigo):
+    deletar(codigo)
+    return redirect("/admin")
+
+
+@app.route("/musica/ativar/<codigo>")
+def pag_ativar(codigo):
+    ativar(codigo)
+    return redirect("/admin")
+
 
 
 
