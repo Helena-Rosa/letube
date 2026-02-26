@@ -24,7 +24,7 @@ VALUES
 "Pop"),
 ("daniel caesar" ,
 "03:10",
-"Bast Part",
+"Best Part",
 "https://i.discogs.com/Vq73Q7tAEqTdwTAtzuhFHO2PovxlkQqvmckcbNbNcsc/rs:fit/g:sm/q:90/h:590/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTExMTc4/OTQ3LTE2MTI1NTc5/NjYtODQ4OC5qcGVn.jpeg",
 "Jazz")
 ;
