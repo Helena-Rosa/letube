@@ -1,13 +1,17 @@
 from database.conexao import conectar 
 
 
-def recuperar_musicas():
+def recuperar_musicas(ativos:bool=False, genero= None):
     #passo 1 e 2 já feito
     conexao, cursor = conectar()
 
+    if ativos == False:
     #execultando a consulta 
-    cursor.execute ("SELect codigo, cantor, duracao, nome, nome_genero, url_imagem, ativo from music")
+        cursor.execute ("""SELECT codigo, cantor, duracao, nome, nome_genero, url_imagem, ativo from music;""")
+    else:
+        cursor.execute ("""SELECT codigo, cantor, duracao, nome, nome_genero, url_imagem, ativo from music WHERE ativo = 1;""")
 
+    
     #recuperando os dados
     musicas = cursor.fetchall()
     

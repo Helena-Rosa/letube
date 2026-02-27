@@ -12,7 +12,7 @@ app= Flask(__name__)
 @app.route ("/")
 @app.route("/home", methods=["GET"])
 def pagina_principal():
-    musicas = recuperar_musicas()
+    musicas = recuperar_musicas(True)
     generos = recuperar_generos()
     return render_template("principal.html", musicas = musicas , generos = generos )
 
@@ -44,9 +44,9 @@ def excluir_musica(codigo):
     return redirect("/admin")
 
 
-@app.route("/musica/ativar/<codigo>")
-def pag_ativar(codigo):
-    ativar(codigo)
+@app.route("/musica/ativar/<codigo>/<status>")
+def pag_ativar(codigo,status):
+    ativar(codigo,status)
     return redirect("/admin")
 
 

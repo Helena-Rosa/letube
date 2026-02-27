@@ -25,4 +25,4 @@ CREATE TABLE IF NOT EXISTS music (
  CONSTRAINT fk_music FOREIGN KEY (nome_genero) REFERENCES genero(nome)
 );
 
-
+0,
