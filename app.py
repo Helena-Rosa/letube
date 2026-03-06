@@ -64,12 +64,19 @@ def cadastro_post():
     return redirect ("/cadastro")
 
 
-@app.route ("/login")
-def pagina_login(): 
-    return render_template("login.html")
+@app.route ("/login", methods= ["POST"])
+def rota_login_usuario():
+    usuario = request.form.get("usuario")
+    senha = request.form.get("senha")
+    usuario = usuario (usuario, senha)
 
-
+    if usuario:
+        return redirect("/adim")
     
+    else:
+        return redirect("/login")
+
+
     
 
 
