@@ -31,7 +31,7 @@ def verificar_usuario(usuario: str, senha: str) -> list:
     """
 
     conexao, cursor = conectar ()
-    cursor.execute("SELECT usuario, senha FROM cadastro WHERE ususario = %s and senha = %s", [usuario, senha])
+    cursor.execute("SELECT nome_usuario, senha FROM cadastro WHERE nome_usuario = %s and senha = %s", [usuario, senha])
     usuario = cursor.fetchone()
     
     conexao.close()

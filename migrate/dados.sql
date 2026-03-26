@@ -5,7 +5,7 @@ INSERT INTO `lenamusic`.`genero`
 `icone`,
 `cor`)
 VALUES
-("Pop","","blue"),
+("Pop","","blue"),re
 ("Jazz","","orenge"),
 ("Rock","","brown")
 ;

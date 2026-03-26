@@ -1,12 +1,15 @@
-from flask import Flask, render_template, redirect, request
+from flask import Flask, render_template, redirect, request, session, flash
 import random
 import mysql.connector
 from model.musica import recuperar_musicas, salvar_musica, deletar, ativar
 from model.genero import recuperar_generos 
-from model.usuario_model import cadastrar_usuario
+from model.usuario_model import cadastrar_usuario, verificar_usuario
+
 
 
 app= Flask(__name__)
+
+app.secret_key = "blueEtiago"
     
 
 
@@ -18,9 +21,10 @@ def pagina_principal():
     return render_template("principal.html", musicas = musicas , generos = generos )
 
 
-
 @app.route ("/admin")
 def pagina_admin():
+    if "usuario_logado" not in session:
+        return redirect ("/login")
     musicas = recuperar_musicas()
     generos = recuperar_generos()
     return render_template("administracao.html", musicas = musicas, generos = generos)
@@ -63,19 +67,33 @@ def cadastro_post():
     cadastrar_usuario (usuario, senha)
     return redirect ("/cadastro")
 
+@app.route ("/login")
+def pagina_login(): 
+    return render_template("login.html")
 
 @app.route ("/login", methods= ["POST"])
 def rota_login_usuario():
     usuario = request.form.get("usuario")
     senha = request.form.get("senha")
-    usuario = usuario (usuario, senha)
 
-    if usuario:
-        return redirect("/adim")
-    
+    if verificar_usuario(usuario, senha):
+        session["usuario_logado"] = usuario
+        flash(f"Seja Bem-vindo , {usuario}!")
+        return redirect("/admin")
     else:
+        flash("Usuario ou senha incorreto","danger")
+        flash("Tente novamente")
         return redirect("/login")
+    
+    
+@app.route("/logout")
+def logout():
+    session.clear()
+    return redirect("/login")
 
+
+
+    
 
     
 
